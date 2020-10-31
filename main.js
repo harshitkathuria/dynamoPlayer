@@ -117,9 +117,14 @@ function loadSongInfo (e, arr) {
     let parser = mm(readableStream, function (err, metadata) {
       if (err) throw err;
       // console.log(metadata);
-      acf = metadata.picture[0].format// album_cover_format
-      acd = metadata.picture[0].data // album_cover_data
-      album_cover = `data:${acf};base64,${Buffer.from(acd).toString('base64')}`
+      if(!metadata.picture || !metadata.picture[0]) {
+        album_cover = './assets/img/default.png'
+      }
+      else {
+        acf = metadata.picture[0].format// album_cover_format
+        acd = metadata.picture[0].data // album_cover_data
+        album_cover = `data:${acf};base64,${Buffer.from(acd).toString('base64')}`
+      }
       songs.push({ path: arr[i], title: metadata.title, artist: metadata.artist, duration: metadata.duration, album_cover})
       // console.log(songs)
       readableStream.close();
