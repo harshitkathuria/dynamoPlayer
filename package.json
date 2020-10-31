@@ -1,11 +1,12 @@
 {
   "name": "dynamoplayer",
   "version": "1.0.0",
-  "description": "A handy music player",
+  "description": "Your Personal Music Player",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "nodemon --exec electron ."
+    "watch": "nodemon --exec electron .",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"dynamoPlayer\""
   },
   "author": "Harshit Kathuria",
   "license": "ISC",

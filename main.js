@@ -3,12 +3,12 @@ const windowStateKeeper = require('electron-window-state')
 const fs = require('fs');
 const mm = require('musicmetadata');
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 
 const isMac = process.platform === 'darwin';
 const isDev = process.env.NODE_ENV === 'development';
 
-const menuTemplate = Menu.buildFromTemplate([
+const mainMenu = Menu.buildFromTemplate([
   ...(isMac ? [{ role: 'appMenu'}] : []),
   {
     label: 'File',
@@ -19,7 +19,7 @@ const menuTemplate = Menu.buildFromTemplate([
   ...(isDev ? [{ label: 'For Developers', submenu: [{ role: 'reload' }, { role: 'toggledevtools'}] }] : []),
   {
     label: 'About',
-    submenu: [ { label: 'Dynamo Player'} ]
+    submenu: [ { label: 'Dynamo Player', click: () => { createAboutWindow() }} ]
   }
 ])
 
@@ -37,7 +37,7 @@ const trayContextMenu = Menu.buildFromTemplate([
   }
 ])
 
-let mainWindow = null, tray = null;
+let mainWindow = null, aboutWindow = null, tray = null;
 
 const createTray = () => {
   const trayImage = nativeImage.createFromPath('./assets/img/tray.png')
@@ -48,6 +48,29 @@ const createTray = () => {
     mainWindow.isMinimized() ? mainWindow.show() : mainWindow.minimize();
   })
   tray.setContextMenu(trayContextMenu);
+}
+
+function createAboutWindow() {
+  aboutWindow = new BrowserWindow({
+    width: 400, height: 500,
+    resizable: false,
+    icon: './assets/img/icon.ico',
+    webPreferences: { nodeIntegration: true }
+  })
+
+  aboutWindow.loadFile('./renderer/about.html');
+
+  aboutWindow.on('close', () => {
+    aboutWindow = null;
+  })
+
+  const aboutMenu = Menu.buildFromTemplate([
+    {
+      label: 'File',
+      submenu: [{ label: 'Exit', click: () => { aboutWindow.destroy() }}]
+    }
+  ])
+  aboutWindow.setMenu(aboutMenu)
 }
 
 function createWindow () {
@@ -61,13 +84,11 @@ function createWindow () {
     width: 850, height: 600,
     x: winState.x, y: winState.y,
     resizable: false,
+    icon: './assets/img/icon.ico',
     webPreferences: { nodeIntegration: true, enableRemoteModule: true }
   })
 
-  if(isDev)
-    mainWindow.webContents.openDevTools()
-
-  Menu.setApplicationMenu(menuTemplate);
+  mainWindow.setMenu(mainMenu)
   mainWindow.loadFile('renderer/index.html')
 
   mainWindow.on('close', (e) => {

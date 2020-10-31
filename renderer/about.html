@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - DynamoPlayer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:,wght@1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <main class="about-app">
+    <h1 id="app-heading">DynamoPlayer</h1>
+    <p>DynamoPlayer is your personal music player. You can select songs from your system and load them to the player. It is a light application for people who like listen to music without any fancy features.
+    On closing the application, it stays in tray by which it can be opened again.</p>
+  </main>
+  <aside class="about-developer">
+    <h2 id="links-heading">Links</h2>
+    <div class="links">
+      <a href="" id="app-code"> Application Code</a>
+      <a href="" id="github"> Developers' Github</a>
+      <a href="" id="linkedin"> Developer's Linkedin</a>
+    </div>
+  </aside>
+  
+  <script>
+    const { shell } = require('electron')
+
+    document.getElementById('app-code').addEventListener('click', () => {
+      shell.openExternal('https://github.com/harshitkathuria/dynamoPlayer')
+    })
+    document.getElementById('github').addEventListener('click', () => {
+      shell.openExternal('https://github.com/harshitkathuria/')
+    })
+    document.getElementById('linkedin').addEventListener('click', () => {
+      shell.openExternal('https://www.linkedin.com/in/harshit-kathuria-365217192/')
+    })
+  </script>
+</body>
+</html>

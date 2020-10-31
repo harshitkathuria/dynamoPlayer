@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 1rem;
+}
+
+.about-app {
+  font-family: 'Lato', sans-serif;
+}
+
+#app-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+  
+.about-developer {
+  font-family: 'Roboto', sans-serif;
+}
+
+#links-heading {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links > a {
+  text-decoration: none;
+  color: dodgerblue;
+  margin-bottom: 5px;
+}
