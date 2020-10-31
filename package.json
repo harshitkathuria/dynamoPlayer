@@ -1,0 +1,17 @@
+{
+  "name": "dynamoplayer",
+  "version": "1.0.0",
+  "description": "A handy music player",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron ."
+  },
+  "author": "Harshit Kathuria",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^10.1.5",
+    "electron-window-state": "^5.0.3",
+    "musicmetadata": "^2.0.5"
+  }
+}

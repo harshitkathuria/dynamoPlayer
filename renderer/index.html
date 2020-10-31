@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap" rel="stylesheet">
+  <title>DynamoPlayer</title>
+</head>
+<body>
+  <aside>
+    <div class="desc">
+      <h1>Add Songs <i id="add-songs" class="fas fa-plus-circle"></i></h1>
+      <ul class="songs-list">
+      </ul>
+    </div>
+    <div class="line">
+      <i class="toggle-list fas fa-angle-left"></i>
+    </div>
+  </aside>
+
+  <main>
+    <div class="info">
+      <h2 id="title">Press Play Button To Play Songs</h2>
+      <h3 id="artist"></h3>
+    </div>
+    <img class="spin cover-image" src="../assets/img/default.jpg" alt="Cover Image">
+    <audio src="" controls style="display: none"> </audio>
+    <div class="ui">
+      <ul class="ui-buttons">
+        <li><img id="prev" src="../assets/img/step-backward-solid.svg" alt="Previous"></li>
+        <!-- <li id="pause" style="display: none"><img width="40px" src="../assets/img/pause-circle-regular.svg" alt="Pause"></li> -->
+        <li><img id="play" width="40px" src="../assets/img/play-circle-regular.svg" alt="Play"></li>
+        <li><img id="next" src="../assets/img/step-forward-solid.svg" alt="Next"></li>
+      </ul>
+      <div class="volumeBar">
+        <img width="20px" src="../assets/img/volume-down-solid.svg" alt="Volume Icon">
+        <input type="range" name="volume" id="volume" min="0" max="100" step="5" value="30">
+      </div>
+    </div>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

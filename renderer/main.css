@@ -1,0 +1,152 @@
+body {
+  font-family: 'Merienda', cursive;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  height: 100vh;
+  display: flex;
+  background-color: #2f2626;
+  margin: 0;
+  overflow: hidden;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+#add-songs {
+  cursor: pointer;
+}
+
+.cover-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+input {
+  outline: none;
+}
+
+.seperator {
+  width: 100%;
+  margin: auto;
+  height: 1px;
+  background-color: wheat;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.line {
+  height: 100vh;
+  background-color: rgb(113, 113, 113);
+  width: 5px;
+  position: relative;
+  transition: width 0.1s;
+}
+
+.line:hover .toggle-list {
+  display: block;
+  cursor: pointer;
+  color: white;
+}
+
+.line:hover {
+  cursor: pointer;
+  width: 12px;
+}
+
+.toggle-list {
+  position: absolute;
+  top: 50%;
+  font-size: 1.6rem;
+  right: -2px;
+  padding: 2px;
+  display: block;
+  color: white;
+}
+
+ul.songs-list {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  height: 90%;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+li.song-title {
+  cursor: pointer;
+}
+
+aside {
+  display: flex;
+  justify-content: space-between;
+  max-width: 30%;
+}
+
+aside .desc { 
+  padding: 2rem;
+  color: white;
+}
+
+main {
+  background: linear-gradient(to bottom, yellow, orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  flex: 1;
+  overflow: hidden;
+}
+
+main .info {
+  text-align: center;
+}
+
+/* UI BTNs */
+
+main .ui .ui-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .ui .ui-buttons li {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+main .ui .ui-buttons li img[id="prev"],
+main .ui .ui-buttons li img[id="next"] {
+  width: 25px !important;
+}
+
+.volumeBar img { cursor: pointer }
+
+#volume {
+  width: 50vw;
+}
+
+
+/* Cover Image rotation */
+.play-spin {
+  animation: rotate 3s infinite linear;
+  animation-play-state: running !important;
+}
+
+.pause-spin {
+  animation-play-state: paused !important;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
