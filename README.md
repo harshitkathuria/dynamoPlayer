@@ -1,5 +1,7 @@
 # DynamoPlayer - your personal music player.
 
+![dynamoplayer](assets/img/dynamoplayer.png)
+
 It is a desktop application built using electronjs, for people who like listening music.
 
 - You can select songs from your system and load them to the player.
@@ -8,6 +10,7 @@ It is a desktop application built using electronjs, for people who like listenin
 - On closing the application, it stays in tray by which it can be opened again. Thus to exit app, exit it from the tray.
 
 ## Installation
+
 - Clone the repository
 - Go to the project directory and run the following commands
 
